@@ -1,4 +1,4 @@
-package com.example.hexagonal;
+package com.example.dia1;
 
 import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.Test;
@@ -7,14 +7,14 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.is;
 
 @QuarkusTest
-class ProductResourceTest {
+class GrettingResourceTest {
     @Test
-    void testResourceEndpoint() {
+    void testHelloEndpoint() {
         given()
-          .when().get("/products")
+          .when().get("/hello")
           .then()
              .statusCode(200)
-             .body(is("Listado de productos 01-07-2024"));
+             .body(is("Hello from Quarkus REST"));
     }
 
 }
