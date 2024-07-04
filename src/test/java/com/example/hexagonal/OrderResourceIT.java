@@ -1,8 +1,8 @@
-package com.example.dia1;
+package com.example.hexagonal;
 
 import io.quarkus.test.junit.QuarkusIntegrationTest;
 
 @QuarkusIntegrationTest
-class GrettingResourceIT extends GrettingResourceTest {
+class OrderResourceIT extends OrderResourceTest {
     // Execute the same tests but in packaged mode.
 }
