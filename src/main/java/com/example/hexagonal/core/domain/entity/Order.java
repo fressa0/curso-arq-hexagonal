@@ -1,4 +1,4 @@
-package com.example.hexagonal.domain.model;
+package com.example.hexagonal.core.domain.entity;
 
 import jakarta.persistence.*;
 import lombok.EqualsAndHashCode;
@@ -25,9 +25,14 @@ public class Order {
 
     private LocalDateTime creationDate;
 
-    public Order(String description, LocalDateTime creationDate) {
-        this.creationDate = creationDate;
-    }
+    @OneToOne
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
 
+    public Order(String description, LocalDateTime creationDate, Customer customer) {
+        this.description = description;
+        this.creationDate = creationDate;
+        this.customer = customer;
+    }
 
 }

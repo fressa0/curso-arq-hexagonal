@@ -1,4 +1,4 @@
-package com.example.hexagonal.domain.service;
+package com.example.hexagonal.core.domain.service;
 
 import io.quarkus.test.junit.QuarkusTest;
 

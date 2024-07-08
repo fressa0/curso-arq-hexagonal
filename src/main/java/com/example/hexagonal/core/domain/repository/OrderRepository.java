@@ -1,6 +1,6 @@
-package com.example.hexagonal.application.ports;
+package com.example.hexagonal.core.domain.repository;
 
-import com.example.hexagonal.domain.model.Order;
+import com.example.hexagonal.core.domain.entity.Order;
 
 import java.util.List;
 import java.util.Optional;

@@ -1,7 +1,7 @@
-package com.example.hexagonal.application.service;
+package com.example.hexagonal.core.domain.service;
 
-import com.example.hexagonal.application.ports.OrderRepository;
-import com.example.hexagonal.domain.model.Order;
+import com.example.hexagonal.core.domain.repository.OrderRepository;
+import com.example.hexagonal.core.domain.entity.Order;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 

@@ -1,7 +1,8 @@
-package com.example.hexagonal.adapter.in.web;
+package com.example.hexagonal.core.adapters.primary.rest;
 
-import com.example.hexagonal.application.service.OrderService;
-import com.example.hexagonal.domain.model.Order;
+import com.example.hexagonal.core.application.QuarkusConfiguration;
+import com.example.hexagonal.core.domain.service.OrderService;
+import com.example.hexagonal.core.domain.entity.Order;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
@@ -13,7 +14,10 @@ import java.util.Optional;
 @Path("/orders")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
-public class OrderController {
+public class OrderResource {
+
+    @Inject
+    QuarkusConfiguration config;
 
     @Inject
     OrderService orderService;

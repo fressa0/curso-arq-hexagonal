@@ -1,7 +1,8 @@
-package com.example.hexagonal.adapter.in.web;
+package com.example.hexagonal.core.adapters.primary.rest;
 
-import com.example.hexagonal.application.service.OrderService;
-import com.example.hexagonal.domain.model.Order;
+import com.example.hexagonal.core.domain.service.OrderService;
+import com.example.hexagonal.core.domain.entity.Customer;
+import com.example.hexagonal.core.domain.entity.Order;
 import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.RestAssured;
 import jakarta.ws.rs.core.MediaType;
@@ -19,13 +20,13 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.mockito.Mockito.when;
 
 @QuarkusTest
-class OrderControllerTest {
+class OrderResourceTest {
 
     @Mock
     OrderService orderService;
 
     @InjectMocks
-    OrderController orderController;
+    OrderResource orderResource;
 
     @BeforeEach
     void setUp() {
@@ -35,7 +36,8 @@ class OrderControllerTest {
 
     @Test
     void testCreateOrder() {
-        Order order = new Order("Test Order", LocalDateTime.now());
+        Customer customer = new Customer("John", "Doe");
+        Order order = new Order("Test Order", LocalDateTime.now(), customer);
         when(orderService.createOrder(order)).thenReturn(order);
 
         given()
@@ -50,7 +52,8 @@ class OrderControllerTest {
 
     @Test
     void testGetOrder() {
-        Order order = new Order("Test Order", LocalDateTime.now());
+        Customer customer = new Customer("John", "Doe");
+        Order order = new Order("Test Order", LocalDateTime.now(), customer);
         when(orderService.getOrder(1L)).thenReturn(Optional.of(order));
 
         given()
